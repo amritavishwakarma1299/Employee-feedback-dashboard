@@ -255,17 +255,10 @@ elif menu == "👥 Employee Insights":
     )
     st.plotly_chart(fig1, use_container_width=True)
 
-  with c2:
-    fig2 = px.box(
-        filtered_df,
-        x="Age",
-        y="Satisfaction",
-        title="Age Group vs Job Satisfaction",
-    )
-    st.plotly_chart(fig2, use_container_width=True)
 
-  c3, c4 = st.columns(2)
-  with c3:
+
+  c2, c3= st.columns(2)
+  with c2:
     df_dept_perf = (
         filtered_df.groupby("Dept")["Performance"].mean().reset_index()
     )
@@ -277,7 +270,7 @@ elif menu == "👥 Employee Insights":
     )
     st.plotly_chart(fig3, use_container_width=True)
 
-  with c4:
+  with c3:
     fig4 = px.pie(
         filtered_df, names="Promotion", title="Promotion Distribution"
     )
@@ -306,14 +299,6 @@ elif menu == "📈 Relationships":
   st.plotly_chart(fig2, use_container_width=True)
 
 
-  fig3 = px.box(
-      filtered_df,
-      x="Salary_growth",
-      y="Performance",
-      title="Performance ↔ Salary Growth",
-    
-  )
-  st.plotly_chart(fig3, use_container_width=True)
 
 # Key Findings 
 elif menu == "💡 Key Findings":
