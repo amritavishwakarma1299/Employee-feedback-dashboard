@@ -176,27 +176,13 @@ elif menu == "💬 Feedback Analysis":
     st.plotly_chart(fig2, use_container_width=True)
 
   r2c1, r2c2 = st.columns(2)
-  with r2c1:
-    df_fb_f = (
-        filtered_df.groupby("Feedback_Freq")["Performance"].mean().reset_index()
-    )
-    fig3 = px.bar(
-        df_fb_f,
-        x="Feedback_Freq",
-        y="Performance",
-        title="Feedback Frequency vs Performance",
-        color="Performance",
-    )
-    st.plotly_chart(fig3, use_container_width=True)
-
-  with r2c2:
-    fig4 = px.pie(
+  fig3 = px.pie(
         filtered_df,
         names="Feedback_mode",
         title="Feedback Method Distribution",
         hole=0.4,
     )
-    st.plotly_chart(fig4, use_container_width=True)
+  st.plotly_chart(fig3, use_container_width=True)
 
   
 # 🎯 PERFORMANCE ANALYSIS SECTION
